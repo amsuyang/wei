@@ -16,7 +16,7 @@ usage="Usage:\nllpushtonewnonemptyrepos.sh repos_address"
 print_usage_based_on_condition "$(expected_parameters_number $# 1)" "$usage"
 
 git remote add origin "$1"
-#git fetch
+git fetch origin
 git branch --set-upstream-to=origin/master master
-git pull --rebase
+git rebase origin/master
 git push
